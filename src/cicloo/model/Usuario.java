@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package cicloo;
+package cicloo.model;
+import cicloo.model.Habito;
 import java.util.ArrayList;
 
 /**
