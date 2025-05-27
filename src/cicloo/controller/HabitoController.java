@@ -9,5 +9,14 @@ package cicloo.controller;
  * @author Eric
  */
 public class HabitoController {
+    // TODO: Criar método concluir habito
+    // TODO: Criar método desfazerConclusao
+    // TODO: Criar método para verificar se foi concluido
+    // TODO: Criar método para atualizar informaçoes sobre o habito
+    // TODO: Criar método para exibir resumo do habito
+    // TODO: Criar método para controlar streak
+    // TODO: Criar método para resetar streak
+    
+    
     
 }

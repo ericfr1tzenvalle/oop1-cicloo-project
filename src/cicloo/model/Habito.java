@@ -39,8 +39,11 @@ public class Habito {
     }
 
     public void setNome(String nome) {
-        if(nome == null || nome.isEmpty()){
-        throw new IllegalArgumentException("Nome não pode ser nulo");
+        if(nome == null || nome.trim().isEmpty()){
+        throw new IllegalArgumentException("Nome não pode ser nulo ou vazio");
+        }
+        if(nome.length() < 3){
+        throw new IllegalArgumentException("Nome deve ter pelo menos 3 caracteres");
         }
         this.nome = nome;
     }
@@ -72,6 +75,9 @@ public class Habito {
     }
 
     public void setPrioridade(Prioridade prioridade) {
+        if(prioridade == null){
+            throw new IllegalArgumentException("Prioridade nao pode ser nula");
+        }
         this.prioridade = prioridade;
     }
 

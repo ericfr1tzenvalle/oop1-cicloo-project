@@ -8,10 +8,27 @@ package cicloo.model.enums;
  *
  * @author 2024020020
  */
+
+/**
+ * Representa a recorrência de um hábito.
+ */
 public enum Recorrencia {
-    DIARIO,
-    SEMANAL,
-    MENSAL,
-    ANUAL,
-    PERSONALIZADO
+    DIARIO("Diario"),
+    SEMANAL("Semanal"),
+    MENSAL("Mensal"),
+    ANUAL("Anual"),
+    PERSONALIZADO("Personalizado");
+    
+    private final String descrição;
+
+    private Recorrencia(String descrição) {
+        this.descrição = descrição;
+    }
+
+    public String getDescrição() {
+        return descrição;
+    }
+    
+    
+    
 }

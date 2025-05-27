@@ -8,8 +8,22 @@ package cicloo.model.enums;
  *
  * @author 2024020020
  */
+
+/**
+ * Representa o nível de prioridade de um hábito.
+ */
 public enum Prioridade {
-    ALTA,
-    MEDIA,
-    BAIXA
+    ALTA("Alta"),
+    MEDIA("Média"),
+    BAIXA("Baixa");
+
+    private final String descricao;
+
+    Prioridade(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
 }
