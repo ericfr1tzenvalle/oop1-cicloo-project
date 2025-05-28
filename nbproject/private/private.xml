@@ -9,6 +9,11 @@
             <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/controller/HabitoController.java</file>
             <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/controller/UsuarioController.java</file>
             <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/view/MenuPrincipal.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/model/Habito.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/model/Usuario.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/model/enums/Prioridade.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/model/enums/Recorrencia.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/dao/DAO.java</file>
         </group>
     </open-files>
 </project-private>
