@@ -72,23 +72,6 @@ Desenvolvido em Java, o projeto segue os conceitos fundamentais da **Programaç�
 
 ---
 
-## 📅 Cronograma de Desenvolvimento
-
-| Dia  | Atividade                                  |
-|-------|-------------------------------------------|
-| 1     | Planejamento e definição da estrutura     |
-| 2     | Implementação das interfaces DAO          |
-| 3     | Cadastro e login de usuário                |
-| 4     | Cadastro de hábitos e associação           |
-| 5     | Marcar conclusão e controle de streaks    |
-| 6     | Sistema de pontos e XP                      |
-| 7     | Desafios semanais e conquistas             |
-| 8     | Interface de resumo do progresso            |
-| 9     | Tratamento de erros e refatoração          |
-| 10    | Testes finais e documentação                |
-
----
-
 ## 📄 Licença
 
 Projeto para fins acadêmicos e prática pessoal.
