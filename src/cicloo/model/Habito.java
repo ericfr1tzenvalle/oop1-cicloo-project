@@ -7,6 +7,7 @@ package cicloo.model;
 import cicloo.model.enums.Categoria;
 import cicloo.model.enums.Prioridade;
 import cicloo.model.enums.Recorrencia;
+import java.time.LocalDate;
 
 /**
  *
@@ -17,6 +18,7 @@ public class Habito {
     private Categoria categoria;
     private Recorrencia recorrencia;
     private Prioridade prioridade;
+    private LocalDate ultimaConclusao;
     private int level;
     private boolean concluido;
     private int xp;
@@ -38,6 +40,24 @@ public class Habito {
         return nome;
     }
 
+    public LocalDate getUltimaConclusao() {
+        return ultimaConclusao;
+    }
+
+    private void setUltimaConclusao(LocalDate ultimaConclusao) {
+        this.ultimaConclusao = ultimaConclusao;
+    }
+    
+    public void marcarComoConcluido(){
+        LocalDate hoje = LocalDate.now();
+        if(ultimaConclusao == null || !ultimaConclusao.equals(hoje)){
+            streak++;
+        }
+        ultimaConclusao = hoje;
+        xp += 10;
+        concluido = true;
+    }
+    
     public void setNome(String nome) {
         if(nome == null || nome.trim().isEmpty()){
         throw new IllegalArgumentException("Nome não pode ser nulo ou vazio");
@@ -113,6 +133,19 @@ public class Habito {
         this.streak = streak;
     }
     
-    
+    @Override
+public String toString() {
+    return "Habito{" +
+            "nome='" + nome + '\'' +
+            ", categoria=" + categoria +
+            ", recorrencia=" + recorrencia +
+            ", prioridade=" + prioridade +
+            ", ultimaConclusao=" + (ultimaConclusao != null ? ultimaConclusao : "Nunca") +
+            ", level=" + level +
+            ", concluido=" + concluido +
+            ", xp=" + xp +
+            ", streak=" + streak +
+            '}';
+}
     
 }
