@@ -13,7 +13,7 @@ package cicloo.model.enums;
  * Representa a recorrência de um hábito.
  */
 public enum Recorrencia {
-    DIARIO("Diario"),
+    DIARIA("Diaria"),
     SEMANAL("Semanal"),
     MENSAL("Mensal"),
     ANUAL("Anual"),

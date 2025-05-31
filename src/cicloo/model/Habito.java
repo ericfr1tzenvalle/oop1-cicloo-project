@@ -14,6 +14,8 @@ import java.time.LocalDate;
  * @author 2024020020
  */
 public class Habito {
+
+    private int id;
     private String nome;
     private Categoria categoria;
     private Recorrencia recorrencia;
@@ -29,11 +31,19 @@ public class Habito {
         setCategoria(categoria);
         setRecorrencia(recorrencia);
         setPrioridade(prioridade);
-        
+
         this.concluido = false;
         this.xp = 0;
         this.streak = 0;
         this.level = 1;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -47,23 +57,25 @@ public class Habito {
     private void setUltimaConclusao(LocalDate ultimaConclusao) {
         this.ultimaConclusao = ultimaConclusao;
     }
-    
-    public void marcarComoConcluido(){
+
+    public void marcarComoConcluido() {
         LocalDate hoje = LocalDate.now();
-        if(ultimaConclusao == null || !ultimaConclusao.equals(hoje)){
-            streak++;
+        if (ultimaConclusao == null || !ultimaConclusao.equals(hoje)) {
+            this.streak++;
+            this.xp += 10;
+            this.concluido = true;
+            this.ultimaConclusao = hoje;
+        } else {
+            System.out.println("Hábito já concluído hoje.");
         }
-        ultimaConclusao = hoje;
-        xp += 10;
-        concluido = true;
     }
-    
+
     public void setNome(String nome) {
-        if(nome == null || nome.trim().isEmpty()){
-        throw new IllegalArgumentException("Nome não pode ser nulo ou vazio");
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("Nome não pode ser nulo ou vazio");
         }
-        if(nome.length() < 3){
-        throw new IllegalArgumentException("Nome deve ter pelo menos 3 caracteres");
+        if (nome.length() < 3) {
+            throw new IllegalArgumentException("Nome deve ter pelo menos 3 caracteres");
         }
         this.nome = nome;
     }
@@ -73,7 +85,7 @@ public class Habito {
     }
 
     public void setCategoria(Categoria categoria) {
-        if(categoria == null){
+        if (categoria == null) {
             throw new IllegalArgumentException("Categoria não pode ser nula");
         }
         this.categoria = categoria;
@@ -84,7 +96,7 @@ public class Habito {
     }
 
     public void setRecorrencia(Recorrencia recorrencia) {
-       if(recorrencia == null){
+        if (recorrencia == null) {
             throw new IllegalArgumentException("Recorrencia nao pode ser nula");
         }
         this.recorrencia = recorrencia;
@@ -95,7 +107,7 @@ public class Habito {
     }
 
     public void setPrioridade(Prioridade prioridade) {
-        if(prioridade == null){
+        if (prioridade == null) {
             throw new IllegalArgumentException("Prioridade nao pode ser nula");
         }
         this.prioridade = prioridade;
@@ -132,20 +144,28 @@ public class Habito {
     public void setStreak(int streak) {
         this.streak = streak;
     }
-    
+
+    public void atualizarCamposBasicos(Habito outro) {
+        setNome(outro.getNome());
+        setCategoria(outro.getCategoria());
+        setPrioridade(outro.getPrioridade());
+        setRecorrencia(outro.getRecorrencia());
+        // não atualiza xp, streak, level...
+    }
+
     @Override
-public String toString() {
-    return "Habito{" +
-            "nome='" + nome + '\'' +
-            ", categoria=" + categoria +
-            ", recorrencia=" + recorrencia +
-            ", prioridade=" + prioridade +
-            ", ultimaConclusao=" + (ultimaConclusao != null ? ultimaConclusao : "Nunca") +
-            ", level=" + level +
-            ", concluido=" + concluido +
-            ", xp=" + xp +
-            ", streak=" + streak +
-            '}';
-}
-    
+    public String toString() {
+        return "Habito{"
+                + "nome='" + nome + '\''
+                + ", categoria=" + categoria
+                + ", recorrencia=" + recorrencia
+                + ", prioridade=" + prioridade
+                + ", ultimaConclusao=" + (ultimaConclusao != null ? ultimaConclusao : "Nunca")
+                + ", level=" + level
+                + ", concluido=" + concluido
+                + ", xp=" + xp
+                + ", streak=" + streak
+                + '}';
+    }
+
 }

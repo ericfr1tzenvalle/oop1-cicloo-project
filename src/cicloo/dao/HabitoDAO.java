@@ -5,6 +5,7 @@
 package cicloo.dao;
 
 import cicloo.model.Habito;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,30 +13,57 @@ import java.util.List;
  * @author Eric
  */
 public class HabitoDAO implements DAO<Habito> {
+    
+    private List<Habito> habitos = new ArrayList<>();
+    private int contador = 0;
 
     @Override
-    public void salvar(Habito t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void salvar(Habito h) {
+        if( h != null){
+            h.setId(contador++);
+            habitos.add(h);
+        }
+  
     }
 
     @Override
     public Habito buscarPorId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        for(Habito h: habitos){
+            if(h.getId() == id){
+                return h;
+            }
+           
+        }
+         return null;
     }
 
     @Override
     public List<Habito> buscarTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       return new ArrayList<>(habitos);
     }
 
     @Override
-    public void atualizar(Habito t) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void atualizar(Habito habitoAtualizar) {
+        if(habitoAtualizar == null) return;
+        for(Habito h: habitos){
+            if(h.getId() == habitoAtualizar.getId()){
+               h.atualizarCamposBasicos(habitoAtualizar);
+               return;
+            }
+        }
+
+
     }
 
     @Override
     public void deletar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       if(id <= 0)return;
+       for(Habito h: habitos){
+           if(h.getId() == id){
+               habitos.remove(h);
+               return;
+           }
+       }
     }
     
 }
