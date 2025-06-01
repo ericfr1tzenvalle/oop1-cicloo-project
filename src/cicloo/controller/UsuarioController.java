@@ -1,23 +1,40 @@
-package cicloo.controller;
 
+package cicloo.controller;
+import cicloo.dao.HabitoDAO;
+import cicloo.dao.UsuarioDAO;
 import cicloo.model.Habito;
 import cicloo.model.Usuario;
 import java.util.List;
 
+
+/**
+ *
+ * @author Eric
+ */
+
+
 public class UsuarioController {
     private Usuario usuario;
+    private HabitoDAO habitoDAO;
+    private UsuarioDAO usuarioDAO;
 
-    public UsuarioController(Usuario usuario) {
+    public UsuarioController(Usuario usuario, HabitoDAO habitoDAO, UsuarioDAO usuarioDAO) {
         this.usuario = usuario;
+        this.habitoDAO = habitoDAO;
+        this.usuarioDAO = usuarioDAO;
     }
+
+    
     
     public void adicionarHabito(Habito h) {
         usuario.adicionarHabito(h);
+        habitoDAO.salvar(h);
     }
 
     
-    public boolean removerHabitoPorId(int id) {
-        return usuario.removerHabitoPorId(id);
+    public void removerHabitoPorId(int id) {
+       usuario.removerHabitoPorId(id);
+       habitoDAO.deletar(id);
     }
 
     
@@ -36,6 +53,7 @@ public class UsuarioController {
 
     public void atualizarUsuario(Usuario u) {
         usuario.atualizarCampos(u);
+        usuarioDAO.atualizar(u);
     }
 
     public boolean verificaSenha(String senha) {

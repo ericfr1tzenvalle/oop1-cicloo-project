@@ -13,28 +13,30 @@ import java.util.List;
  * @author Eric
  */
 public class UsuarioDAO implements DAO<Usuario> {
-    
+
     private List<Usuario> usuarios = new ArrayList<>();
     private int contador = 0;
 
     @Override
     public void salvar(Usuario u) {
-        if(u == null) return;
-        for(Usuario usuario: usuarios){
-            if(usuario.getEmail().equals(u.getEmail())){
+        if (u == null) {
+            return;
+        }
+        for (Usuario usuario : usuarios) {
+            if (usuario.getEmail().equals(u.getEmail())) {
                 return;
             }
         }
-        
+
         u.setId(contador++);
         usuarios.add(u);
-        
+
     }
 
     @Override
     public Usuario buscarPorId(int id) {
-        for(Usuario u: usuarios){
-            if(u.getId() == id){
+        for (Usuario u : usuarios) {
+            if (u.getId() == id) {
                 return u;
             }
         }
@@ -48,9 +50,11 @@ public class UsuarioDAO implements DAO<Usuario> {
 
     @Override
     public void atualizar(Usuario usuarioAtualizar) {
-        if(usuarioAtualizar == null) return;
-        for(Usuario u: usuarios){
-            if(u.getId() == usuarioAtualizar.getId()){
+        if (usuarioAtualizar == null) {
+            return;
+        }
+        for (Usuario u : usuarios) {
+            if (u.getId() == usuarioAtualizar.getId()) {
                 u.atualizarCampos(usuarioAtualizar);
                 return;
             }
@@ -59,13 +63,10 @@ public class UsuarioDAO implements DAO<Usuario> {
 
     @Override
     public void deletar(int id) {
-        if(id < 0) return;
-        for(Usuario u: usuarios){
-            if(u.getId() == id){
-                usuarios.remove(u);
-                return;
-            }
+        if (id < 0) {
+            return;
         }
+        usuarios.removeIf(u -> u.getId() == id);
     }
-    
+
 }
