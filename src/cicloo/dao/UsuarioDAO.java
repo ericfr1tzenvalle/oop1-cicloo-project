@@ -20,7 +20,8 @@ public class UsuarioDAO implements DAO<Usuario> {
     @Override
     public void salvar(Usuario u) {
         if (u == null) {
-            return;
+            throw new IllegalArgumentException("Usuario não pode ser nulo");
+            
         }
         for (Usuario usuario : usuarios) {
             if (usuario.getEmail().equals(u.getEmail())) {
@@ -35,6 +36,9 @@ public class UsuarioDAO implements DAO<Usuario> {
 
     @Override
     public Usuario buscarPorId(int id) {
+        if(id < 0){
+            return null;
+        }
         for (Usuario u : usuarios) {
             if (u.getId() == id) {
                 return u;
@@ -51,7 +55,7 @@ public class UsuarioDAO implements DAO<Usuario> {
     @Override
     public void atualizar(Usuario usuarioAtualizar) {
         if (usuarioAtualizar == null) {
-            return;
+            throw new IllegalArgumentException("Usuario não pode ser nulo");
         }
         for (Usuario u : usuarios) {
             if (u.getId() == usuarioAtualizar.getId()) {

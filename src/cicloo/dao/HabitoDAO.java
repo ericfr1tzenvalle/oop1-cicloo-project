@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package cicloo.dao;
 
 import cicloo.model.Habito;
@@ -19,20 +15,22 @@ public class HabitoDAO implements DAO<Habito> {
 
     @Override
     public void salvar(Habito h) {
-        if (h != null) {
-            h.setId(contador++);
-            habitos.add(h);
+        if (h == null) {
+            throw new IllegalArgumentException("Habito não pode ser nulo");
         }
-
+        h.setId(contador++);
+        habitos.add(h);
     }
 
     @Override
     public Habito buscarPorId(int id) {
+        if (id < 0) {
+            return null;
+        }
         for (Habito h : habitos) {
             if (h.getId() == id) {
                 return h;
             }
-
         }
         return null;
     }
@@ -45,7 +43,8 @@ public class HabitoDAO implements DAO<Habito> {
     @Override
     public void atualizar(Habito habitoAtualizar) {
         if (habitoAtualizar == null) {
-            return;
+            throw new IllegalArgumentException("Habito não pode ser nulo");
+            
         }
         for (Habito h : habitos) {
             if (h.getId() == habitoAtualizar.getId()) {
@@ -53,7 +52,6 @@ public class HabitoDAO implements DAO<Habito> {
                 return;
             }
         }
-
     }
 
     @Override
@@ -63,5 +61,4 @@ public class HabitoDAO implements DAO<Habito> {
         }
         habitos.removeIf(h -> h.getId() == id);
     }
-
 }
