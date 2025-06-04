@@ -13,10 +13,17 @@ import java.util.List;
  * @author Eric
  */
 public class UsuarioDAO implements DAO<Usuario> {
-
+    private static UsuarioDAO instancia;
     private List<Usuario> usuarios = new ArrayList<>();
     private int contador = 0;
-
+    private UsuarioDAO(){}
+    
+    public static UsuarioDAO getInstancia(){
+        if(instancia == null){
+            instancia = new UsuarioDAO();
+        }
+        return instancia;
+    }
     @Override
     public void salvar(Usuario u) {
         if (u == null) {

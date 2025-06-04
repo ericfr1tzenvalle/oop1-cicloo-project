@@ -16,15 +16,12 @@ public class HabitoController {
     private final Habito habito;
     private final HabitoDAO habitoDAO;
 
-    public HabitoController(Habito habito, HabitoDAO habitoDAO) {
+    public HabitoController(Habito habito) {
         if (habito == null) {
             throw new IllegalArgumentException("Hábito não pode ser nulo");
         }
-        if (habitoDAO == null) {
-            throw new IllegalArgumentException("HabitoDAO não pode ser nulo");
-        }
         this.habito = habito;
-        this.habitoDAO = habitoDAO;
+        this.habitoDAO = HabitoDAO.getInstancia();  // pega direto o Singleton
     }
 
     public void concluirHabito() {
@@ -37,18 +34,17 @@ public class HabitoController {
     }
 
     public void atualizarHabito(String n, Categoria c, Prioridade p, Recorrencia r) {
-    if (n == null) throw new IllegalArgumentException("Nome não pode ser nulo");
-    if (c == null) throw new IllegalArgumentException("Categoria não pode ser nula");
-    if (p == null) throw new IllegalArgumentException("Prioridade não pode ser nula");
-    if (r == null) throw new IllegalArgumentException("Recorrência não pode ser nula");
+        if (n == null) throw new IllegalArgumentException("Nome não pode ser nulo");
+        if (c == null) throw new IllegalArgumentException("Categoria não pode ser nula");
+        if (p == null) throw new IllegalArgumentException("Prioridade não pode ser nula");
+        if (r == null) throw new IllegalArgumentException("Recorrência não pode ser nula");
 
-    habito.setNome(n);
-    habito.setCategoria(c);
-    habito.setPrioridade(p);
-    habito.setRecorrencia(r);
-    habitoDAO.atualizar(habito);
-}
-
+        habito.setNome(n);
+        habito.setCategoria(c);
+        habito.setPrioridade(p);
+        habito.setRecorrencia(r);
+        habitoDAO.atualizar(habito);
+    }
 
     public void resetarStreak() {
         habito.setStreak(0);

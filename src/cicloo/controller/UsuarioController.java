@@ -16,13 +16,13 @@ public class UsuarioController {
     private HabitoDAO habitoDAO;
     private UsuarioDAO usuarioDAO;
 
-    public UsuarioController(Usuario usuario, HabitoDAO habitoDAO, UsuarioDAO usuarioDAO) {
+    public UsuarioController(Usuario usuario) {
         if (usuario == null) {
             throw new IllegalArgumentException("Usuário não pode ser nulo");
         }
         this.usuario = usuario;
-        this.habitoDAO = habitoDAO;
-        this.usuarioDAO = usuarioDAO;
+        this.habitoDAO = HabitoDAO.getInstancia();
+        this.usuarioDAO = UsuarioDAO.getInstancia();
     }
 
     public void adicionarHabito(Habito h) throws IllegalArgumentException {

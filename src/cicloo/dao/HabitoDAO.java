@@ -9,10 +9,17 @@ import java.util.List;
  * @author Eric
  */
 public class HabitoDAO implements DAO<Habito> {
-
+    private static  HabitoDAO instancia; //única instancia (Singleton)
     private List<Habito> habitos = new ArrayList<>();
     private int contador = 0;
-
+    private HabitoDAO(){}
+    
+    public static HabitoDAO getInstancia(){
+        if(instancia == null){
+            instancia = new HabitoDAO();
+        }
+        return instancia;
+    }
     @Override
     public void salvar(Habito h) {
         if (h == null) {
