@@ -53,6 +53,17 @@ public class UsuarioDAO implements DAO<Usuario> {
         }
         return null;
     }
+    public Usuario buscarPorNome(String nome){
+        if(nome.trim().isEmpty()){
+            return null;
+        }
+        for(Usuario u: usuarios){
+            if(u.getNome().toLowerCase().equals(nome)){
+                return u;
+            }
+        }
+        return null;
+    }
 
     @Override
     public List<Usuario> buscarTodos() {

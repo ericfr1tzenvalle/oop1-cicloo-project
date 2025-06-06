@@ -13,15 +13,18 @@ import cicloo.model.enums.Recorrencia;
 
 public class HabitoController {
 
-    private final Habito habito;
+    private Habito habito;
     private final HabitoDAO habitoDAO;
 
-    public HabitoController(Habito habito) {
-        if (habito == null) {
-            throw new IllegalArgumentException("Hábito não pode ser nulo");
+    public HabitoController() {
+      this.habitoDAO = HabitoDAO.getInstancia();
+    }
+    
+    public void setHabito(Habito h){
+        if(h == null){
+            throw new IllegalArgumentException("Habito não pode ser nulo");
         }
-        this.habito = habito;
-        this.habitoDAO = HabitoDAO.getInstancia();  // pega direto o Singleton
+        this.habito = h;
     }
 
     public void concluirHabito() {
