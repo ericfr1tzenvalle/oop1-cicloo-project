@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/view/HabitoView.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/model/Usuario.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/view/MenuPrincipal.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/model/Habito.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/view/UsuarioView.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/controller/HabitoController.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/model/enums/Prioridade.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/model/enums/Recorrencia.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/model/enums/Categoria.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/controller/UsuarioController.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/model/Conquista.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/dao/HabitoDAO.java</file>
+            <file>file:/C:/Users/Eric/Desktop/GitHub/java-cicloo-project/src/cicloo/model/Desafio.java</file>
+        </group>
+    </open-files>
+</project-private>
